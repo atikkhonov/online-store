@@ -1,0 +1,268 @@
+.cards {
+  margin: 1rem;
+  padding-top: 10px;
+  padding-bottom: 38px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
+  gap: 2rem 0;
+
+  justify-content: space-between;
+}
+
+.sort-and-filter-block {
+  display: block;
+  
+  .sort-block {
+    display: flex;
+    align-items: center;
+    
+    p {
+      font-weight: 500;
+    }
+    
+    b {
+      color: var(--dark-main-color);
+      font-size: 1.1em;
+      font-weight: 500;
+
+      cursor: pointer;
+    }
+
+    .sort-popup {
+      display: none;
+      
+      .popup__item {
+        padding: .5rem;
+        
+        font-weight: 500;
+        
+        border: 1px solid var(--gray1200);
+      }
+    }
+  }
+
+  .filter-block {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-weight: 500;
+    }
+    
+    .filter-items {
+      display: flex;
+      flex-wrap: wrap;
+      
+      .filter__item {
+        width: 6.5rem;
+        height: 3rem;
+        margin: .5rem;
+
+        font-size: 1em;
+        font-weight: 500;
+        
+        border: 1px solid var(--gray1200);
+
+        transition: .3s;
+
+        &:hover {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+}
+
+.pagination-block {
+  margin: 3rem 0;
+  width: 50%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .pagination__button {
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: var(--white);
+  }
+
+  .bread__crumbs {
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 1.5em;
+  }
+  
+  .pagination__item {
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    background-color: var(--whiteF9);
+    border: 1px solid var(--white);
+
+    p {
+      margin: 0;
+      
+      font-size: 1.3em;
+      
+      text-align: center;
+    }
+  }
+
+  .pagination-active {
+    background-color: var(--white);
+  }
+}
+
+.card-support{
+  font-size: 16px;
+
+  
+  .card {
+    padding: 1.5rem;
+    width: 20rem;
+    height: 27rem;
+    
+    border: 1px solid var(--gray1200);
+
+    position: relative;
+
+    .card-header {
+      
+      &:hover {
+        .card-more-buttons {
+          .card__more_button {
+            display: block;
+          }
+        }
+      }
+      
+      .card-more-buttons {
+        top: 0;
+        right: 0;
+        width: 50px;
+        margin: .5em;
+        
+        position: absolute;
+        
+        .card__more_button {
+          width: 2.3rem;
+          height: 2.3rem;
+          margin: 10px 0;
+
+          display: none;
+
+          svg {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+      }
+
+      .card-image {
+        justify-content: center;
+        
+        img {
+          width: 14rem;
+          height: 16rem;
+        }
+      }
+    }
+    
+    .card-content {
+
+      .card__name {
+        font-size: 1em;
+        font-weight: 400;
+      }
+
+      .card__price {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .card-footer {
+    width: 20rem;
+    
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    
+    .card-footer-items {
+      padding: 0;
+      margin: auto 0;
+      width: 3.3em;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      font-size: 2em;
+
+      .button-card-minus {
+        height: 100%;
+        width: 2.3em;
+
+        background-color: var(--white);
+        
+        p {
+          margin: 0;
+          height: 2.5rem;
+
+          font-size: 2rem;
+        }
+
+        &:hover {
+          background-color: var(--gray1200);
+        }
+      }
+
+      .card_footer_counter {
+        font-size: 2rem;
+      }
+      
+      .button-card-plus {
+        height: 100%;
+        width: 2.3em;
+
+        background-color: var(--white);
+
+        p {
+          margin: 0;
+          height: 2.5rem;
+
+          font-size: 2rem;
+        }
+
+        &:hover {
+          background-color: var(--gray1200);
+        }
+      }
+
+      p {
+        font-size: 2em;
+      }
+    }
+
+    .card__button {
+      font-size: 1rem;
+    }
+  }
+}

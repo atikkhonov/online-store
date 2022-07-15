@@ -1,0 +1,136 @@
+@import '../variables';
+
+@media (max-width: 768px) {
+  html, body, footer {
+    font-size: 10px;
+  }
+
+  .navigation {
+    display: none;
+  }
+  
+  .container {
+    max-width: 550px;
+  }
+  
+  // Card
+  .cards {
+    padding: 10px 30px;
+    
+    font-size: 12px;
+  }
+  
+  // Buttons
+  .header__button {
+    height: 3em;
+  }
+  
+  .header__button, .footer__button {
+    font-size: 1em;
+  }
+
+  // Header 
+  header {
+    .header-container {
+      .header-content {
+        .header-content__items {
+          .search-block {
+            .search-icon {
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+
+        .header__more_buttons {
+          .profile {
+            svg {
+              width: 40px;
+              height: 40px;
+            }
+          }
+          
+          .more-button-item {
+            display: none;
+          }
+
+          .burger-button {
+            display: block;
+
+            svg {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Footer 
+  footer {
+    .footer__container {
+      svg {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+      }
+      
+      .footer__left_block {
+        h6 {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  // Menu 
+  .menu-active {
+    display: block;
+    
+    .menu-content {
+      .search-block {
+        display: none;
+      }
+    }
+  }
+
+  // Modal
+  .modal {
+    .modal__content {
+      .modal-header {
+        .modal-buttons {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          
+          .modal__button {
+            margin: 0;
+            
+            svg {
+              width: 15px;
+              height: 15px;
+            }
+          } 
+        } 
+      }
+
+      .modal-content {
+        .modal-left-block {
+          padding: 4rem 0;
+          
+          img {
+            width: 15rem;
+            height: 15rem;
+          }
+        }
+
+        .modal-right-block {
+          padding: 4rem 1rem ;
+        }
+      }
+    }
+  }
+}

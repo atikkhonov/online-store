@@ -1,0 +1,110 @@
+header {
+  
+  .header-container {
+    height: 4em;
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .header-content__items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header__logo {
+          margin: 0 1.3rem 0 0;
+          
+          img {
+            height: 3.5em;
+          }
+        }
+
+        .search-block {
+          height: 38px;
+          width: 30rem;
+        
+          display: flex;
+          position: relative;
+          
+          input {
+            height: 38px;
+            width: 30rem;
+            padding: 0 0 0 20px;
+            margin: 0 0 0 10px;
+            
+            border: 1px solid #CCC;
+            outline: none;
+          
+            background-color: #FFF;
+            color: var(--gray700);
+            font-size: 20px;
+            
+            &::placeholder {
+              border: 0;
+            }
+          }
+        
+          .search-icon {
+            color: var(--gray);
+        
+            position: absolute;
+            right: 6px;
+            top: 4px;
+          }
+        }
+      }
+
+      .more-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        .more-button-item {
+          display: flex;
+          
+          .button-counter {
+            display: flex;
+
+            color: var(--white);
+            
+            transform: translate(-16px, 5px);
+          }
+        }
+        
+      }
+      
+    }
+  }
+
+  .navigation {
+    background-color: var(--main-color);
+    color: var(--white);
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 1;
+    z-index: 13;
+    
+    .navigation-container {
+      display: grid;
+      grid-template-columns: repeat(4, 3fr);
+      gap: 0;
+
+      .nav-item {
+        padding: 20px 0 0 0;
+        height: 40px;
+
+        text-transform: uppercase;
+        text-align: center;
+
+        transition: .5s;
+        
+        &:hover {
+          background-color: var(--dark-main-color);
+        }
+      }
+    }
+  }
+}
+
+

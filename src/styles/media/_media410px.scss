@@ -1,0 +1,48 @@
+@import '../variables';
+
+@media (max-width: 410px) {
+  // Cart
+  .cart {
+    .container {
+      .cart-content {
+        .cart-items {
+          .cart-item {
+            padding: 0;
+            
+            .cart-item--title {
+
+              img {
+                width: 7rem;
+                height: 7rem;
+              }
+              
+              .cart_item__name {
+                width: 8rem;
+                font-size: 7px;
+              }
+            }
+            .cart-item--more {
+              display: block;
+              text-align: center;
+
+              .cart_item__price {
+                sub {
+                  display: none;
+                }
+              }
+
+              .cart-item--amount {
+                width: 7.2rem;
+                margin: 1rem auto;
+                
+                .cart-item--buttons {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

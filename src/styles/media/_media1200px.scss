@@ -1,0 +1,27 @@
+@import '../variables';
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+
+  html, body, footer {
+    font-size: 14px;
+  }
+
+  .burger-button {
+    display: none;
+  }
+
+  .menu-active {
+    display: none;
+  }
+
+  // Card
+  .cards {
+    margin: 0;  
+
+    gap: 10px;
+    justify-content: space-around;
+  }
+}

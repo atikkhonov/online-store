@@ -1,0 +1,115 @@
+@import '../variables';
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+
+  .burger-button {
+    display: none;
+  }
+
+  .menu-active {
+    display: none;
+  }
+
+  html, body, footer {
+    font-size: 12px;
+  }
+  
+  .pagination-block {
+    width: 100%;
+
+    .pagination__button {
+      svg {
+        width: 7px;
+        height: 14px;
+      }
+    }
+  }
+  
+  // Card
+  .cards {
+    padding: 10px 100px;
+
+    .card-support {
+      .card {
+        .card-content {
+          .card__name {
+            font-size: 12px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  // Favorites 
+  .favorites {
+    .container {
+      .card-support {
+        .card {
+          .card-content {
+            .card__name {
+              font-size: 12px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Header 
+  header {
+    .header-container {
+      .header-content {
+        .header-content__items {
+          .search-block {
+            width: 25rem;
+            height: 2.5rem;
+            
+            input {
+              width: 25rem;
+              height: 2.5rem;
+
+              font-size: 16px;
+            }
+
+            .search-icon {
+              right: 4px;
+              top: 3px;
+
+              svg {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Modal
+  .modal {
+    .modal__content {
+      .modal-header {
+        .modal-buttons {
+          .modal__button {
+            p {
+              margin: 0;
+
+              font-size: 10px;
+            }
+            
+            svg {
+              width: 19px;
+              height: 19px;
+            }
+          } 
+        } 
+      }
+    }
+  }
+}

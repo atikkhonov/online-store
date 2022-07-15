@@ -1,0 +1,113 @@
+.favorites {
+  .container {
+    padding: 3rem 1rem;
+
+    .favorites-content {
+      .favorites-sort-and-filter {
+        display: block;
+        
+        .sort-block {
+          display: flex;
+          align-items: center;
+          
+          p {
+            font-weight: 500;
+          }
+          
+          b {
+            color: var(--dark-main-color);
+            font-size: 1.1em;
+            font-weight: 500;
+
+            cursor: pointer;
+          }
+
+          .sort-popup {
+            display: none;
+            
+            .popup__item {
+              padding: .5rem;
+              
+              font-weight: 500;
+              
+              border: 1px solid var(--gray1200);
+            }
+          }
+        }
+
+        .filter-block {
+          display: flex;
+          align-items: center;
+
+          p {
+            font-weight: 500;
+          }
+          
+          .filter-items {
+            display: flex;
+            flex-wrap: wrap;
+            
+            .filter__item {
+              width: 6.5rem;
+              height: 3rem;
+              margin: .5rem;
+
+              font-size: 1em;
+              font-weight: 500;
+              
+              border: 1px solid var(--gray1200);
+
+              transition: .3s;
+
+              &:hover {
+                background-color: var(--white);
+              }
+            }
+          }
+        }
+      }
+      
+      .favorites__title {
+        font-size: 1.4em;
+        font-weight: 500;
+      }
+
+      .favorites-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
+        gap: 2rem 2rem;
+
+        justify-content: space-evenly;
+      }
+    }
+  }
+}
+
+.empty-favorites {
+  .container {
+    padding: 2rem 1rem;
+
+    .favorites-content {
+      margin: 2rem 0;
+      padding: 4rem 2rem;
+
+      text-align: center;
+      
+      border: 1px solid var(--gray1200);
+
+      .favorites__title {
+        font-size: 2em;
+      }
+
+      .favorites__subtitle {
+        font-size: 1.3em;
+      }
+
+      .favorites__text {
+        margin: 4rem 0;
+        
+        font-size: 1.5em;
+      }
+    }
+  }
+}
