@@ -1,13 +1,15 @@
 import React from 'react'
+import { IProduct } from '../types/types';
 
 import Button from './Button'
 
 interface CardProps {
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
+  product: IProduct;
 }
 
-const Card: React.FC<CardProps> = ({ activeModal, setActiveModal }) => {
+const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => {
   
   return (
     <div className="card-support">
@@ -37,15 +39,15 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal }) => {
             </button>
           </div>
           <div className="card-image">
-            <img src="./images/image.jpg" alt="123" />
+            <img src={product.imageURL} alt="product" />
           </div>
         </div>
         <div className="card-content">
           <div className="card__name">
-            <p>ЖИДКОСТЬ FRUIT SHAKE (SALT) МАНГО СМОРОДИНА 30мл/20мг</p>
+            <p>{product.title} {product.volume}мл/{product.strength}мг</p>
           </div>
           <div className="card__price">
-            <b>470 ₽/шт</b>
+            <b>{product.price} ₽/шт</b>
           </div>
         </div>
       </div>
