@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { IProduct } from "../../types/types"
+import { fetchProducts } from "../actions/ProductAction"
 
 interface ProductState {
   products: IProduct[],
@@ -13,23 +14,24 @@ const initialState: ProductState = {
   error: ''
 }
 
-export const ProductSlice = createSlice({
+export const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {
-    productsFetching(state) {
-      state.isLoading = true;
-    },
-    productsFetchingSuccess(state, action: PayloadAction<IProduct[]>) {
+  reducers: {},
+  extraReducers: {
+    [fetchProducts.fulfilled.type]: (state, action: PayloadAction<IProduct[]>) => {
       state.products = action.payload;
       state.isLoading = false;
       state.error = '';
     },
-    productsFetchingError(state, action: PayloadAction<string>) {
+    [fetchProducts.pending.type]: (state) => {
+      state.isLoading = false;
+    },
+    [fetchProducts.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
-    }
+    },
   }
 })
 
-export default ProductSlice.reducer;
+export default productSlice.reducer;

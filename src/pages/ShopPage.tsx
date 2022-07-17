@@ -6,16 +6,19 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
 import SortBlock from '../components/SortBlock'
+import { useAppDispatch, useAppSelector } from '../hooks/redux'
+import { fetchProducts } from '../store/actions/ProductAction'
 
 function ShopPage () {
   const [ activeModal, setActiveModal ] = React.useState(false)
-  const [ items, setItems ] = React.useState([])
-  
+
+  const dispatch = useAppDispatch()
+  const { products, isLoading, error } = useAppSelector(state => state.product)
+
   React.useEffect(() => {
-    fetch('https://62d2faa581cb1ecafa68c825.mockapi.io/vapeLiquids')
-      .then((res) => res.json())
-      .then((arr) => setItems(arr))
-  }, [])
+    dispatch(fetchProducts())
+  }, [ ])
+
   
   return (
     <>
@@ -32,12 +35,14 @@ function ShopPage () {
           <FilterBlock/>
         </div>
         <section className="cards">
+          {isLoading && <h1>Идет загрузка...</h1>}
+          {error && <h1>{error}</h1>}
           {
-            items.map(item => {
+            products.map(product => {
               return <Card
                 activeModal={activeModal}
                 setActiveModal={setActiveModal}
-                product={item}
+                product={product}
               />
             })
           }
