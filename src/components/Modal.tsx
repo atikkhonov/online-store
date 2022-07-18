@@ -5,7 +5,7 @@ interface ModalProps {
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Modal: React.FC<ModalProps> = ({ active, setActive}) => {
+const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
   
   return (
     <div 

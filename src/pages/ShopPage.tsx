@@ -10,10 +10,9 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { fetchProducts } from '../store/actions/ProductAction'
 
 function ShopPage () {
-  const [ activeModal, setActiveModal ] = React.useState(false)
-
   const dispatch = useAppDispatch()
   const { products, isLoading, error } = useAppSelector(state => state.product)
+  const [ activeModal, setActiveModal ] = React.useState(false)
 
   React.useEffect(() => {
     dispatch(fetchProducts())
@@ -84,8 +83,8 @@ function ShopPage () {
           </button>
         </div>
       </div>
+      <Modal active={activeModal} setActive={setActiveModal}/>
       <Footer/>
-      <Modal active={activeModal} setActive={setActiveModal} />
     </>
   )
 }
