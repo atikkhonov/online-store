@@ -5,13 +5,17 @@ import { fetchProducts } from "../actions/ProductAction"
 interface ProductState {
   products: IProduct[],
   isLoading: boolean,
-  error: string
+  error: string,
+  currentPage: number,
+  perPage: number,
 }
 
 const initialState: ProductState = {
   products: [],
   isLoading: false,
-  error: ''
+  error: '',
+  currentPage: 1,
+  perPage: 8,
 }
 
 export const productSlice = createSlice({

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
-import Modal from './components/Modal';
 import { AboutPage } from './pages/AboutPage';
 import CartPage from './pages/CartPage';
 import { ComparePage } from './pages/ComparePage';

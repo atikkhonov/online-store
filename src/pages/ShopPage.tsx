@@ -11,9 +11,11 @@ import { fetchProducts } from '../store/actions/ProductAction'
 
 function ShopPage () {
   const dispatch = useAppDispatch()
-  const { products, isLoading, error } = useAppSelector(state => state.product)
+  const { products, isLoading, error, currentPage } = useAppSelector(state => state.product)
   const [ activeModal, setActiveModal ] = React.useState(false)
 
+  const pages = [1, 2, 3, 4, 5]
+  
   React.useEffect(() => {
     dispatch(fetchProducts())
   }, [ ])
@@ -52,30 +54,15 @@ function ShopPage () {
               <path d="M9.64912 0L11 1.5675L2.72588 11L11 20.4325L9.64912 22L1.19209e-07 11L9.64912 0Z" fill="#111111"/>
             </svg>
           </button>
-          <button className="pagination__item pagination-active">
-            <p>1</p>
-          </button>
-          <button className="pagination__item">
-            <p>2</p>
-          </button>
-          <button className="pagination__item">
-            <p>3</p>
-          </button>
-          <button className="pagination__item">
-            <p>4</p>
-          </button>
-          <button className="pagination__item">
-            <p>5</p>
-          </button>
-          <div className="bread__crumbs">
-            <p>...</p>
-          </div>
-          <button className="pagination__item">
-            <p>12</p>
-          </button>
-          <button className="pagination__item">
-            <p>13</p>
-          </button>
+          {
+            pages.map((page, index) => <button 
+              className={currentPage == page ? "pagination__item pagination-active" : "pagination__item"}
+              key={index}
+            >
+              <p>{page}</p>
+            </button>
+            )
+          }
           <button className="pagination__button pagination-button-right">
             <svg width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.35088 22L0 20.4325L8.27412 11L0 1.5675L1.35088 0L11 11L1.35088 22Z" fill="#111111"/>
