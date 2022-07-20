@@ -6,16 +6,12 @@ interface ProductState {
   products: IProduct[],
   isLoading: boolean,
   error: string,
-  currentPage: number,
-  perPage: number,
 }
 
 const initialState: ProductState = {
   products: [],
   isLoading: false,
   error: '',
-  currentPage: 1,
-  perPage: 8,
 }
 
 export const productSlice = createSlice({

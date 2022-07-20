@@ -11,7 +11,7 @@ import { fetchProducts } from '../store/actions/ProductAction'
 
 function ShopPage () {
   const dispatch = useAppDispatch()
-  const { products, isLoading, error, currentPage } = useAppSelector(state => state.product)
+  const { products, isLoading, error } = useAppSelector(state => state.product)
   const [ activeModal, setActiveModal ] = React.useState(false)
 
   const pages = [1, 2, 3, 4, 5]
@@ -56,7 +56,6 @@ function ShopPage () {
           </button>
           {
             pages.map((page, index) => <button 
-              className={currentPage == page ? "pagination__item pagination-active" : "pagination__item"}
               key={index}
             >
               <p>{page}</p>
