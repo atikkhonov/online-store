@@ -15,7 +15,7 @@
   
   .sort-block {
     margin: 1rem 0;
-    display: flex;
+    display: inline-block;
     
     p {
       font-weight: 500;
@@ -31,19 +31,19 @@
     
     .sort-block-header {
       display: flex;
+      align-items: center;
 
       p {
         cursor: pointer;
       }
 
-      b {
-        display: flex;
-        align-items: center;
+      svg {
+        margin: 0 0 0 .5rem;
+        cursor: pointer;
       }
     }
 
     .sort-popup {
-      margin: 0 0 0 1rem;
       display: grid;
 
       .popup__item {
