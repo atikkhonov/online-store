@@ -22,7 +22,7 @@ const FavoritePage = () => {
           </div>
           <div className="favorites-content">
             <div className="favorites-sort-and-filter">
-              <SortBlock/>
+              {/* <SortBlock/> */}
               <FilterBlock/>
             </div>
             <p className="favorites__title">Добавленные товары: </p>

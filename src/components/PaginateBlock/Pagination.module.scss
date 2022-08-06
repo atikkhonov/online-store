@@ -1,0 +1,83 @@
+.root {
+  :global {
+    padding: 0;
+
+    li {
+      margin: 3rem 0;
+      width: 3rem;
+      margin: 0 .15rem 0 .15rem;
+    
+      display: inline-block;
+      
+      background-color: var(--whiteF9);
+      border: 1px solid var(--white);
+      
+      cursor: pointer;
+
+      &.selected {
+        background-color: var(--white);
+      }
+      
+
+      a {
+        width: 3rem;
+        height: 3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  
+  
+  // .pagination__button {
+  //   width: 3rem;
+  //   height: 3rem;
+
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-evenly;
+
+  //   background-color: var(--white);
+  // }
+
+  // .bread__crumbs {
+  //   width: 3rem;
+  //   height: 3rem;
+
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-around;
+
+  //   font-size: 1.5em;
+  // }
+  
+  // .pagination__item {
+  //   width: 3rem;
+  //   height: 3rem;
+
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-around;
+    
+  //   background-color: var(--whiteF9);
+  //   border: 1px solid var(--white);
+
+  //   p {
+  //     margin: 0;
+      
+  //     font-size: 1.3em;
+      
+  //     text-align: center;
+  //   }
+  // }
+
+  // .pagination-active {
+  //   background-color: var(--white);
+  // }
+}

@@ -10,4 +10,3 @@ export interface IProduct {
   taste: string;
   rating: number;
 }
-

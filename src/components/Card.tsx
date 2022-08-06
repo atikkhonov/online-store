@@ -1,5 +1,5 @@
 import React from 'react'
-import { IProduct } from '../types/types';
+import { IProduct } from '../models/IProduct';
 
 import Button from './Button'
 

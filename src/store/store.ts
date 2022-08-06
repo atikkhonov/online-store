@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import productReducer from "./reducers/ProductSlice";
+import productReducer from "./slices/ProductSlice";
+import searchReducer from "./slices/SearchSlice"
 
 const rootRuducer = combineReducers({
   product: productReducer,
+  search: searchReducer,
 })
 
 export const setupStore = () => {
@@ -14,3 +16,4 @@ export const setupStore = () => {
 export type RootState = ReturnType <typeof rootRuducer>
 export type AppStore = ReturnType <typeof setupStore>
 export type AppDispath = AppStore['dispatch']
+

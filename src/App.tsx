@@ -8,6 +8,7 @@ import ShopPage from './pages/ShopPage';
 
 function App() {
   
+  
   return (
     <>
       <Routes>
