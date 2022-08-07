@@ -16,11 +16,16 @@ import { productSlice } from "../slices/ProductSlice";
 //   }
 // )
 
-export const fetchProducts = (category: number, sort: string, order: string) => async (dispatch: AppDispath) => {
+export const fetchProducts = (
+  category: number, 
+  sort: string, 
+  order: string, 
+  page: number
+) => async (dispatch: AppDispath) => {
   try {
     dispatch(productSlice.actions.productsFetching())
     const response = await axios.get<IProduct[]>(`
-      https://62d2faa581cb1ecafa68c825.mockapi.io/vapeLiquids?page=1&limit=8${(category > 0) ? `&category=${category}` : ''}${(sort ? `&sortBy=${sort}` : '')}${(order ? `&order=${order}` : '')}`)
+      https://62d2faa581cb1ecafa68c825.mockapi.io/vapeLiquids?page=${page}&limit=8${(category > 0) ? `&category=${category}` : ''}${(sort ? `&sortBy=${sort}` : '')}${(order ? `&order=${order}` : '')}`)
     dispatch(productSlice.actions.productsFetchingSuccess(response.data))
   } catch (error) {
     dispatch(productSlice.actions.productFetchingError("Не удалось загрузить страницу"))

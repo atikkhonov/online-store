@@ -1,10 +1,18 @@
 import React from 'react';
+import useDebounce from '../hooks/useDebounce';
 
 import AnimationButton from './AnimationButton';
 import Menu from './Menu';
 
 const Header = () => {
   const [menuActive, setMenuActive] = React.useState<boolean>(false)
+  const [ search, setSearch ] = React.useState('')
+
+  const debounced = useDebounce(search)
+  
+  React.useEffect(() => {
+    console.log(debounced)
+  }, [debounced])
   
   return (
     <header>
@@ -17,12 +25,12 @@ const Header = () => {
           </div>
           <div className="header-content__items">
             <div className="search-block header__search_block">
-              <input type="text" placeholder="Search ..." />
-              <div className="search-icon">
-                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M29.85 31.4625L19.9875 21.6C19.2375 22.25 18.3625 22.7562 17.3625 23.1187C16.3625 23.4812 15.3 23.6625 14.175 23.6625C11.475 23.6625 9.1875 22.725 7.3125 20.85C5.4375 18.975 4.5 16.7125 4.5 14.0625C4.5 11.4125 5.4375 9.14999 7.3125 7.27499C9.1875 5.39999 11.4625 4.46249 14.1375 4.46249C16.7875 4.46249 19.0437 5.39999 20.9062 7.27499C22.7688 9.14999 23.7 11.4125 23.7 14.0625C23.7 15.1375 23.525 16.175 23.175 17.175C22.825 18.175 22.3 19.1125 21.6 19.9875L31.5 29.8125L29.85 31.4625ZM14.1375 21.4125C16.1625 21.4125 17.8875 20.6937 19.3125 19.2562C20.7375 17.8187 21.45 16.0875 21.45 14.0625C21.45 12.0375 20.7375 10.3062 19.3125 8.86874C17.8875 7.43124 16.1625 6.71249 14.1375 6.71249C12.0875 6.71249 10.3437 7.43124 8.90625 8.86874C7.46875 10.3062 6.75 12.0375 6.75 14.0625C6.75 16.0875 7.46875 17.8187 8.90625 19.2562C10.3437 20.6937 12.0875 21.4125 14.1375 21.4125Z" fill="#555555"/>
-                </svg>
-              </div>
+              <input 
+                type="text" 
+                placeholder="Search ..."
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+              />
             </div>
           </div>
           <div className="more-buttons header__more_buttons">

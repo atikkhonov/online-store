@@ -1,4 +1,5 @@
 import React from 'react'
+import qs from 'qs'
 
 import Card from '../components/Card'
 import FilterBlock from '../components/FilterBlock'
@@ -7,15 +8,16 @@ import Header from '../components/Header'
 import Modal from '../components/Modal'
 import PaginationBlock from '../components/PaginateBlock/PaginationBlock'
 import SortBlock from '../components/SortBlock'
+
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { fetchProducts } from '../store/actions/ProductAction'
+import { setCurrentPage } from '../store/slices/SearchSlice'
 
 function ShopPage () {
-
   const [ activeModal, setActiveModal ] = React.useState(false)
 
   const dispatch = useTypedDispatch()
-  const { categoryID, sortBy } = useTypedSelector(state => state.search)
+  const { categoryID, sortBy, page } = useTypedSelector(state => state.search)
   const { products, isLoading, error } = useTypedSelector(state => state.product)
   
   React.useEffect(() => {
@@ -23,8 +25,12 @@ function ShopPage () {
     const order = sortBy.sortProperty.includes('+') ? 'asc' : 'desc';
     // const search = seachValue ? `&search=${searchValue}` : ''
     
-    dispatch(fetchProducts(categoryID, sort, order))
-  }, [ categoryID, sortBy ])
+    dispatch(fetchProducts(categoryID, sort, order, page))
+  }, [ categoryID, sortBy, page ])
+  
+  const onChangePage = React.useCallback((number: number) => {
+    dispatch(setCurrentPage(number))
+  }, [])
   
   return (
     <>
@@ -54,7 +60,7 @@ function ShopPage () {
             })
           }
         </section>
-        <PaginationBlock/>
+        <PaginationBlock currentPage={page} onChangePage={onChangePage}/>
       </div>
       <Modal active={activeModal} setActive={setActiveModal}/>
       <Footer/>

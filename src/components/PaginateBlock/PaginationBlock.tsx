@@ -3,9 +3,23 @@ import ReactPaginate from 'react-paginate'
 
 import styles from './Pagination.module.scss'
 
-const PaginationBlock: React.FC = () => {
-  
+interface PaginateBlockProps {
+  onChangePage: (number: number) => void
+  currentPage: number
+}
+
+const PaginationBlock: React.FC<PaginateBlockProps> = ({ onChangePage, currentPage }) => {
   return (
+    <ReactPaginate
+      className={styles.root}
+      breakLabel="..."
+      nextLabel=">"
+      previousLabel="<"
+      onPageChange={(i) => onChangePage(i.selected + 1)}
+      pageRangeDisplayed={8}
+      pageCount={6}
+      forcePage={currentPage - 1}
+    />
     // <div className="pagination-block">
     //   <button className="pagination__button pagination-button-left">
     //     <svg width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,16 +56,6 @@ const PaginationBlock: React.FC = () => {
     //     </svg>
     //   </button>
     // </div>
-    <ReactPaginate
-      className={styles.root}
-      breakLabel="..."
-      nextLabel=">"
-      previousLabel="<"
-      onPageActive={(event) => (event.selected + 1)}
-      pageRangeDisplayed={8}
-      pageCount={6}
-      forcePage={1}
-    />
   )
 }
 
