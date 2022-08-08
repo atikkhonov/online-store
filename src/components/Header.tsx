@@ -1,21 +1,14 @@
 import React from 'react';
-import useDebounce from '../hooks/useDebounce';
 
 import AnimationButton from './AnimationButton';
 import Menu from './Menu';
+import SearchBlock from './SearchBlock';
 
 const Header = () => {
   const [menuActive, setMenuActive] = React.useState<boolean>(false)
-  const [ search, setSearch ] = React.useState('')
-
-  const debounced = useDebounce(search)
-  
-  React.useEffect(() => {
-    console.log(debounced)
-  }, [debounced])
   
   return (
-    <header>
+    <header >
       <div className="container header-container">
         <div className="header-content">
           <div className="header-content__items">
@@ -24,14 +17,7 @@ const Header = () => {
             </div>
           </div>
           <div className="header-content__items">
-            <div className="search-block header__search_block">
-              <input 
-                type="text" 
-                placeholder="Search ..."
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-              />
-            </div>
+            <SearchBlock/>
           </div>
           <div className="more-buttons header__more_buttons">
             <button className="statistic more-button-item">
