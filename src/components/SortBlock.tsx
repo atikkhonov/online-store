@@ -1,9 +1,6 @@
 import React from 'react'
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { setSortBy } from '../store/slices/SearchSlice'
-interface SortBlockProps {
-  
-}
 
 const popupItems = [
   { name: "популярности (убывание)", sortProperty: 'rating' },
@@ -14,8 +11,9 @@ const popupItems = [
   { name: "алфавиту (возрастание)", sortProperty: '+title' }
 ]
 
-const SortBlock: React.FC<SortBlockProps> = () => {
+const SortBlock: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false)
+  const sortRef = React.useRef(null)
   
   const dispatch = useTypedDispatch()
   const sortBy = useTypedSelector(state => state.search.sortBy)
@@ -24,9 +22,23 @@ const SortBlock: React.FC<SortBlockProps> = () => {
     dispatch(setSortBy(obj))
     setIsOpen(!isOpen)
   }
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (!event.path.includes(sortRef.current)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.body.addEventListener('click', handleClickOutside)
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
   
   return (
-    <div className="sort-block">
+    <div className="sort-block" ref={sortRef}>
       <div 
         onClick={() => setIsOpen(!isOpen)}
         className="sort-block-header"

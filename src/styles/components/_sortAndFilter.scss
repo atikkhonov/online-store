@@ -3,7 +3,9 @@
   
   .sort-block {
     margin: 1rem 0;
+    
     display: inline-block;
+    position: relative;
     
     p {
       font-weight: 500;
@@ -33,6 +35,8 @@
 
     .sort-popup {
       display: grid;
+      position: absolute;
+      z-index: 999;
 
       .popup__item {
         width: 25rem;
