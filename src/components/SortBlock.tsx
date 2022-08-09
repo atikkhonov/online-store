@@ -21,7 +21,6 @@ const SortBlock: React.FC<SortBlockProps> = () => {
   const sortBy = useTypedSelector(state => state.search.sortBy)
   
   const onClickPopupItem = (obj: {name: string; sortProperty: string}) => {
-    console.log(obj, sortBy);
     dispatch(setSortBy(obj))
     setIsOpen(!isOpen)
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import qs from 'qs'
+import axios from 'axios'
 
 import Card from '../components/Card'
 import FilterBlock from '../components/FilterBlock'
@@ -13,6 +13,11 @@ import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { fetchProducts } from '../store/actions/ProductAction'
 import { setCurrentPage } from '../store/slices/SearchSlice'
 
+import useDebounce from '../hooks/useDebounce'
+
+import { SearchContext } from '../App'
+import { IProduct } from '../models/IProduct'
+
 function ShopPage () {
   const [ activeModal, setActiveModal ] = React.useState(false)
 
@@ -20,13 +25,27 @@ function ShopPage () {
   const { categoryID, sortBy, page } = useTypedSelector(state => state.search)
   const { products, isLoading, error } = useTypedSelector(state => state.product)
   
+  const { search } = React.useContext(SearchContext)
+  const debounced = useDebounce(search)
+  
+  async function searchProducts() {
+    await axios.get<IProduct[]>('https://62d2faa581cb1ecafa68c825.mockapi.io/vapeLiquids')
+  }
+
+  React.useEffect(() => {
+    if (debounced.length > 3) {
+      searchProducts()
+    }
+  }, [debounced])
+  
+  
   React.useEffect(() => {
     const sort = sortBy.sortProperty.replace('+', '');
     const order = sortBy.sortProperty.includes('+') ? 'asc' : 'desc';
-    // const search = seachValue ? `&search=${searchValue}` : ''
+    const searchValue = search ? `&search=${search}` : ''
     
-    dispatch(fetchProducts(categoryID, sort, order, page))
-  }, [ categoryID, sortBy, page ])
+    dispatch(fetchProducts(categoryID, sort, order, page, searchValue))
+  }, [ categoryID, sortBy, page, search ])
   
   const onChangePage = React.useCallback((number: number) => {
     dispatch(setCurrentPage(number))

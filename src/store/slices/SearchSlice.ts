@@ -34,6 +34,6 @@ export const searchSlice = createSlice({
   }
 })
 
-export const {setCurrentPage, setSortBy, setFilter} = searchSlice.actions 
+export const { setCurrentPage, setSortBy, setFilter } = searchSlice.actions 
 
 export default searchSlice.reducer

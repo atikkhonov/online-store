@@ -79,7 +79,7 @@ const Header = () => {
           <AnimationButton text={"Контакты"} className={"header__button"}/>
         </div>
       </div>
-      <Menu active={menuActive} setActive={setMenuActive} />
+      <Menu active={menuActive} setActive={setMenuActive}/>
     </header>
   )
 }
