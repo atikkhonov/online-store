@@ -29,7 +29,7 @@ const SortBlock: React.FC = () => {
         setIsOpen(false)
       }
     }
-
+    
     document.body.addEventListener('click', handleClickOutside)
 
     return () => {

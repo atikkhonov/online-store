@@ -90,17 +90,24 @@ header {
       grid-template-columns: repeat(4, 3fr);
       gap: 0;
 
-      .nav-item {
-        padding: 20px 0 0 0;
-        height: 40px;
-
-        text-transform: uppercase;
-        text-align: center;
-
-        transition: .5s;
+      a {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        width: 100%;
         
-        &:hover {
-          background-color: var(--dark-main-color);
+        .nav-item {
+          padding: 20px 0 0 0;
+          height: 40px;
+    
+          text-transform: uppercase;
+          text-align: center;
+    
+          transition: .5s;
+          
+          &:hover {
+            background-color: var(--dark-main-color);
+          }
         }
       }
     }
