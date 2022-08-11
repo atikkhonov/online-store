@@ -3,7 +3,7 @@ import React from 'react'
 import { IProduct } from '../models/IProduct';
 
 import { useTypedDispatch } from '../hooks/redux';
-import { addProductToCart, removeProductFromCart } from '../store/slices/CartSlice';
+import { addProductToCart, deleteProductFromCart, removeProductFromCart } from '../store/slices/CartSlice';
 
 interface CartItemProps {
   cartProduct: IProduct;
@@ -18,6 +18,10 @@ const CartItem: React.FC<CartItemProps> = ({ cartProduct }) => {
 
   const onClickRemoveButton = () => {
     dispatch(removeProductFromCart(cartProduct))
+  }
+  
+  const onClickDeleteButton = () => {
+    dispatch(deleteProductFromCart(cartProduct))
   }
   
   return (
@@ -59,6 +63,10 @@ const CartItem: React.FC<CartItemProps> = ({ cartProduct }) => {
           <p>{cartProduct.price * cartProduct.count} ₽</p>
         </div>
       </div>
+      <button 
+        className="button button-delete"
+        onClick={onClickDeleteButton}
+      >&times;</button>
     </div>
   )
 }

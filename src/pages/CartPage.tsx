@@ -6,10 +6,17 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
+import { clearCart } from '../store/slices/CartSlice'
 
 const CartPage = () => {
   const dispatch = useTypedDispatch()
   const { products, totalPrice } = useTypedSelector(state => state.cart)
+
+  const onClickClearButton = () => {
+    dispatch(clearCart())
+  }
+  
+  const productsCurrent = products.reduce((sum, prod) => sum + prod.count, 0)
   
   return (
     <>
@@ -35,8 +42,11 @@ const CartPage = () => {
               <div className="search-block">
                 <input type="text" placeholder="Найти ..."/>
               </div>
-              <div className="total__items">Всего товаров в корзине <span>&nbsp; 13</span></div>
-              <button className="button button-close"> очистить корзину <span>&times;</span></button>
+              <div className="total__items">Всего товаров в корзине <span>&nbsp; {productsCurrent}</span></div>
+              <button 
+                className="button button-close"
+                onClick={onClickClearButton}
+              > очистить корзину <span>&times;</span></button>
             </div>
             <section className="cart-items">
               {

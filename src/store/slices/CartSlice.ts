@@ -4,13 +4,11 @@ import { IProduct } from "../../models/IProduct"
 interface CartSlice {
   products: IProduct[];
   totalPrice: number;
-  // productCount: number;
 }
 
 const initialState: CartSlice = {
   products: [],
   totalPrice: 0,
-  // productCount: 0,
 }
 
 export const cartSlice = createSlice({
@@ -30,7 +28,7 @@ export const cartSlice = createSlice({
       }
 
       state.totalPrice = state.products.reduce((sum, item) => {
-        return (item.price * item.count) + sum
+        return (item.price * item.count) + sum;
       }, 0)
     },
     removeProductFromCart(state, action: PayloadAction<IProduct>) {
@@ -38,7 +36,7 @@ export const cartSlice = createSlice({
       
       if (findProduct && (findProduct.count > 1)) {
         findProduct.count--;
-        state.totalPrice = state.totalPrice - findProduct.price
+        state.totalPrice = state.totalPrice - findProduct.price;
         return
       } if ((findProduct !== undefined) && (findProduct.count === 1)) {
         return
@@ -46,13 +44,10 @@ export const cartSlice = createSlice({
         return
       }
 
-      // state.totalPrice = state.products.reduce((sum, item) => {
-      //   return sum - item.price 
-      // }, (state.totalPrice))
-      
     },
-    deleteProductFromCart(state, action: PayloadAction<number>) {
-      state.products = state.products.filter(prod => prod.id !== action.payload);
+    deleteProductFromCart(state, action: PayloadAction<IProduct>) {
+      state.products = state.products.filter((obj) => obj.id !== action.payload.id);
+      state.totalPrice = state.totalPrice - (action.payload.price * action.payload.count);
     },
     clearCart(state) {
       state.products = [];
@@ -61,6 +56,6 @@ export const cartSlice = createSlice({
   }
 })
 
-export const { addProductToCart, removeProductFromCart, clearCart } = cartSlice.actions; 
+export const { addProductToCart, removeProductFromCart, deleteProductFromCart, clearCart } = cartSlice.actions; 
 
 export default cartSlice.reducer

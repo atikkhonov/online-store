@@ -111,6 +111,22 @@
           
           border: 1px solid var(--gray1200);
 
+          position: relative;
+
+          &:hover {
+            .button-delete {
+              display: block;
+            }
+          }
+          
+          .button-delete {
+            display: none;
+            font-size: 1.6em;
+            position: absolute;
+            top: 5%;
+            right: 1%;
+          }
+          
           .cart-item--title {
             display: flex;
             
