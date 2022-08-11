@@ -78,11 +78,6 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
         </div>
       </div>
       <div className="card-footer">
-        <div className="card-footer-items">
-          <button className="button button-card-minus"><p>-</p></button>
-          <span className="card_footer_counter">3</span>
-          <button className="button button-card-plus"><p>+</p></button>
-        </div>
         <button onClick={onClickAddToCart} className="card__button">
           <span className="span">В корзину</span>
         </button>

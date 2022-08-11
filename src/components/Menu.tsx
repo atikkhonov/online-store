@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
+import { useTypedSelector } from '../hooks/redux';
 import AnimationButton from './AnimationButton'
 import SearchBlock from './SearchBlock';
 
@@ -9,6 +10,11 @@ interface BurgerMenuProps {
 }
 
 const Menu: FC<BurgerMenuProps> = ({ active, setActive }) => {
+  const { products } = useTypedSelector(state => state.cart)
+  const favoriteProducts = useTypedSelector(state => state.favorite.favoriteProducts)
+
+  const productsCurrent = products.reduce((sum, prod) => sum + prod.count, 0)
+
   return (
     <section 
       className={active ? 'menu-active' : 'menu'} 
@@ -40,7 +46,7 @@ const Menu: FC<BurgerMenuProps> = ({ active, setActive }) => {
                   <circle cx="37.4545" cy="12.7272" r="9.81818" fill="#3DF1A6"/>
                 </svg>
                 <div className="button-counter">
-                  {13}
+                  {favoriteProducts.length}
                 </div>
               </button>
           </Link>
@@ -52,7 +58,7 @@ const Menu: FC<BurgerMenuProps> = ({ active, setActive }) => {
                   <circle cx="37.4545" cy="12.7272" r="9.81818" fill="#3DF1A6"/>
                 </svg>
                 <div className="button-counter">
-                  {13}
+                  {productsCurrent}
                 </div>
               </button>
           </Link>

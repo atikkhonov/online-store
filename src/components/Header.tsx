@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
+
 import { useTypedSelector } from '../hooks/redux';
 
 import AnimationButton from './AnimationButton';
