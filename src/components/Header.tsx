@@ -10,6 +10,7 @@ const Header = () => {
   const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
   const { products } = useTypedSelector(state => state.cart)
+  const favoriteProducts = useTypedSelector(state => state.favorite.favoriteProducts)
   
   const productsCurrent = products.reduce((sum, prod) => sum + prod.count, 0)
   
@@ -48,7 +49,7 @@ const Header = () => {
                   <circle cx="37.4545" cy="12.7272" r="9.81818" fill="#3DF1A6"/>
                 </svg>
                 <div className="button-counter">
-                  {13}
+                  {favoriteProducts.length}
                 </div>
               </button>
             </Link>

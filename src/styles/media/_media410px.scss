@@ -1,6 +1,36 @@
 @import '../variables';
 
 @media (max-width: 410px) {
+  // Favorite
+  .favorites {
+    .container {
+      .favorites-content {
+        .favorite-item {
+          width: 75vw;
+          padding: 1rem 1rem 1rem 0;
+          
+          .favorite-item--title {
+            img {
+              width: 7rem;
+              height: 7rem;
+            }
+            .favorite_item__name {
+              width: 7rem;
+              font-size: 1em;
+            }
+          }
+          .favorite-item--more {
+            .favorite_item__price {
+              p {
+                font-size: 1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
   // Cart
   .cart {
     .container {

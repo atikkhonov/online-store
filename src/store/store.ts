@@ -3,11 +3,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import productReducer from "./slices/ProductSlice";
 import searchReducer from "./slices/SearchSlice";
 import cartReducer from "./slices/CartSlice";
+import favoriteReducer from "./slices/FavoriteSlice"
 
 const rootRuducer = combineReducers({
   product: productReducer,
   search: searchReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  favorite: favoriteReducer,
 })
 
 export const setupStore = () => {

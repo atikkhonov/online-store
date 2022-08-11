@@ -108,6 +108,26 @@
     }
   }
   
+  // Favorite
+  .favorites {
+    .container {
+      .favorites-content {
+        .favorite-item {
+          padding: 1rem 1rem 1rem 0;
+          .favorite-item--title {
+            .favorite_item__name {
+              width: 11rem;
+              font-size: 1.1em;
+            }
+          }
+          .favorite-item--more {
+            
+          }
+        }
+      }
+    }
+  }
+  
   // Cart 
   .cart {
     .container {

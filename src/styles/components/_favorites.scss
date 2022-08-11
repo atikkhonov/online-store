@@ -3,79 +3,75 @@
     padding: 3rem 1rem;
 
     .favorites-content {
-      .favorites-sort-and-filter {
-        display: block;
-        
-        .sort-block {
-          display: flex;
-          align-items: center;
-          
-          p {
-            font-weight: 500;
-          }
-          
-          b {
-            color: var(--dark-main-color);
-            font-size: 1.1em;
-            font-weight: 500;
-
-            cursor: pointer;
-          }
-
-          .sort-popup {
-            .popup__item {
-              padding: .5rem;
-              
-              font-weight: 500;
-              
-              border: 1px solid var(--gray1200);
-            }
-          }
-        }
-
-        .filter-block {
-          display: flex;
-          align-items: center;
-
-          p {
-            font-weight: 500;
-          }
-          
-          .filter-items {
-            display: flex;
-            flex-wrap: wrap;
-            
-            .filter__item {
-              width: 6.5rem;
-              height: 3rem;
-              margin: .5rem;
-
-              font-size: 1em;
-              font-weight: 500;
-              
-              border: 1px solid var(--gray1200);
-
-              transition: .3s;
-
-              &:hover {
-                background-color: var(--white);
-              }
-            }
-          }
-        }
-      }
       
       .favorites__title {
         font-size: 1.4em;
         font-weight: 500;
       }
 
-      .favorites-items {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
-        gap: 2rem 2rem;
+      .favorite-item {
+        height: 13rem;
+        padding: 1rem 4rem;
 
-        justify-content: space-evenly;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        border: 1px solid var(--gray1200);
+
+        position: relative;
+
+        &:hover {
+          .button-delete {
+            display: block;
+          }
+        }
+        
+        .button-delete {
+          display: none;
+          font-size: 1.6em;
+          position: absolute;
+          top: 5%;
+          right: 1%;
+        }
+        
+        .favorite-item--title {
+          display: flex;
+          
+          img {
+            width: 10rem;
+            height: 10rem;
+          }
+
+          .favorite_item__name {
+            width: 20rem;
+            padding-top: 1rem;
+            
+            font-size: 1.3em;
+            letter-spacing: 1.1px;
+          }
+        }
+
+        .favorite-item--more {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+
+          .favorite_item__price {
+            font-size: 1.5em;
+            flex-wrap: wrap;
+
+            p {
+              margin: 0;
+            }
+
+            sub {
+              font-size: .7em;
+              border-bottom: 1px solid var(--dark-main-color);
+            }
+          }
+        }
       }
     }
   }
