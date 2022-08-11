@@ -9,4 +9,5 @@ export interface IProduct {
   strength: number;
   taste: string;
   rating: number;
+  count: number;
 }

@@ -1,8 +1,9 @@
 import React from 'react'
+
+import { useTypedDispatch } from '../hooks/redux';
+import { addProductToCart } from '../store/slices/CartSlice';
+
 import { IProduct } from '../models/IProduct';
-
-import Button from './Button'
-
 interface CardProps {
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,6 +11,17 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => {
+  const dispatch = useTypedDispatch()
+  
+  const onClickAddToCart = () => {
+    const item = {
+      id: product.id,
+      title: product.title,
+      imageURL: product.imageURL,
+      price: product.price,
+    }
+    dispatch(addProductToCart(item))
+  }
   
   return (
     <div className="card-support">
@@ -39,7 +51,7 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
             </button>
           </div>
           <div className="card-image">
-            <img src={product.imageURL} alt="product" />
+            <img src={product.imageURL} alt="vape liquid" />
           </div>
         </div>
         <div className="card-content">
@@ -57,7 +69,9 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
           <span className="card_footer_counter">3</span>
           <button className="button button-card-plus"><p>+</p></button>
         </div>
-        <Button text="В корзину" className={"card__button"}/>
+        <button onClick={onClickAddToCart} className="card__button">
+          <span className="span">В корзину</span>
+        </button>
       </div>
     </div>
   )
