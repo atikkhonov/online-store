@@ -11,11 +11,3 @@ export interface IProduct {
   rating: number;
   count: number;
 }
-
-export interface IProductFromSlice {
-  id: number;
-  title: string;
-  imageURL: string;
-  price: number;
-  count?: number;
-}

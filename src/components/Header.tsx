@@ -94,12 +94,8 @@ const Header = () => {
             <AnimationButton text={"Категории"} className={"header__button"}/>
           </Link>
           <AnimationButton text={"Магазины"} className={"header__button"}/>
-          <Link to="/about">
-            <AnimationButton text={"Компания"} className={"header__button"}/>
-          </Link>
-          <Link to="/contacts">
-            <AnimationButton text={"Контакты"} className={"header__button"}/>
-          </Link>
+          <AnimationButton text={"Компания"} className={"header__button"}/>
+          <AnimationButton text={"Контакты"} className={"header__button"}/>
         </div>
       </div>
       <Menu active={menuActive} setActive={setMenuActive}/>

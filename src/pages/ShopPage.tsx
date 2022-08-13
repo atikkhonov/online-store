@@ -43,8 +43,11 @@ function ShopPage () {
     const sort = sortBy.sortProperty.replace('+', '');
     const order = sortBy.sortProperty.includes('+') ? 'asc' : 'desc';
     const searchValue = search ? `&search=${search}` : ''
+    const category = categoryID
     
-    dispatch(fetchProducts(categoryID, sort, order, page, searchValue))
+    dispatch(fetchProducts({category, sort, order, page, searchValue}))
+
+    window.scrollTo(0, 0)
   }, [ categoryID, sortBy, page, search ])
   
   const onChangePage = React.useCallback((number: number) => {

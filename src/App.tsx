@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom'
-import { AboutPage } from './pages/AboutPage';
+
+import AboutPage from './pages/AboutPage';
 import CartPage from './pages/CartPage';
-import { ComparePage } from './pages/ComparePage';
-import { ContactsPage } from './pages/ContactsPage';
+import ComparePage from './pages/ComparePage';
+import ContactsPage from './pages/ContactsPage';
 import FavoritePage from './pages/FavoritePage';
 import ShopPage from './pages/ShopPage';
 

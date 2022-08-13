@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { setSortBy } from '../store/slices/SearchSlice'
 

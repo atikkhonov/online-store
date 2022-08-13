@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import AnimationButton from '../components/AnimationButton'
 import CartItem from '../components/CartItem'
@@ -83,7 +84,9 @@ const CartPage = () => {
               <div className="cart__text">
                 <p>Ab nemo eius culpa reiciendis neque distinctio, rerum, laudantium consequatur cumque iste illum incidunt ipsam excepturi. Alias amet totam earum quae tenetur dolore cumque debitis sit, ratione, voluptatem, dolorum vitae veritatis repellat.</p>
               </div>
-              <AnimationButton text="Перейти к покупкам" className="header__button"/>
+              <Link to="/">
+                <AnimationButton text="Перейти к покупкам" className="header__button"/>
+              </Link>
             </div>
           </div>
         </div>

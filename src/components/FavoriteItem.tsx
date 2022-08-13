@@ -1,8 +1,9 @@
 import React from 'react'
+
 import { useTypedDispatch } from '../hooks/redux';
-import { IProduct } from '../models/IProduct'
 import { deleteFromFavorite } from '../store/slices/FavoriteSlice';
 
+import { IProduct } from '../models/IProduct'
 interface FavoriteItemProps {
   favoriteProduct: IProduct;
 }

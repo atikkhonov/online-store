@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { IProduct } from "../../models/IProduct"
+import { fetchProducts } from "../actions/ProductAction";
 
 interface ProductState {
   products: IProduct[],
@@ -16,34 +17,21 @@ const initialState: ProductState = {
 export const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {
-    productsFetching(state) {
-      state.isLoading = true;
-    },
-    productsFetchingSuccess(state, action: PayloadAction<IProduct[]>) {
+  reducers: {},
+  extraReducers: {
+    [fetchProducts.fulfilled.type]: (state, action: PayloadAction<IProduct[]>) => {
+      state.products = action.payload;
       state.isLoading = false;
       state.error = '';
-      state.products = action.payload;
     },
-    productFetchingError(state, action: PayloadAction<string>) {
+    [fetchProducts.pending.type]: (state) => {
+      state.isLoading = false;
+    },
+    [fetchProducts.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
-    }
+    },
   }
-  // extraReducers: {
-  //   [fetchProducts.fulfilled.type]: (state, action: PayloadAction<IProduct[]>) => {
-  //     state.products = action.payload;
-  //     state.isLoading = false;
-  //     state.error = '';
-  //   },
-  //   [fetchProducts.pending.type]: (state) => {
-  //     state.isLoading = false;
-  //   },
-  //   [fetchProducts.rejected.type]: (state, action: PayloadAction<string>) => {
-  //     state.isLoading = false;
-  //     state.error = action.payload;
-  //   },
-  // }
 })
 
 export default productSlice.reducer;

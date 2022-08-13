@@ -1,6 +1,8 @@
-import React, { FC } from 'react'
+import React from 'react'
+
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '../hooks/redux';
+
 import AnimationButton from './AnimationButton'
 import SearchBlock from './SearchBlock';
 
@@ -9,7 +11,7 @@ interface BurgerMenuProps {
   setActive: any;
 }
 
-const Menu: FC<BurgerMenuProps> = ({ active, setActive }) => {
+const Menu: React.FC<BurgerMenuProps> = ({ active, setActive }) => {
   const { products } = useTypedSelector(state => state.cart)
   const favoriteProducts = useTypedSelector(state => state.favorite.favoriteProducts)
 

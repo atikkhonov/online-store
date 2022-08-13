@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const ComparePage = () => {
+const ComparePage = () => {
   return (
     <div>ComparePage</div>
   )
 }
+
+export default ComparePage

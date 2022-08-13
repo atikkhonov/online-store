@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import AnimationButton from '../components/AnimationButton'
 import FavoriteItem from '../components/FavoriteItem'
-
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+
+import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../hooks/redux'
 
 const FavoritePage = () => {
