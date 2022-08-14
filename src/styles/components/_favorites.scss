@@ -6,6 +6,76 @@
 
     .favorites-content {
       
+      .order-block {
+        margin: 3rem 0;
+        padding: 1rem;
+
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+
+        border: 1px solid var(--gray1200);
+        background-color: var(--whiteF9);
+
+        .search-block {
+          height: 2.5rem;
+          width: 18rem;
+          margin: .5rem .5rem;
+        
+          display: flex;
+          position: relative;
+          align-items: center;
+          
+          input {
+            height: 2.5rem;
+            width: 18rem;
+            padding: 0 0 0 20px;
+            margin: 0 0 0 10px;
+            
+            border: 1px solid #CCC;
+            outline: none;
+          
+            background-color: #FFF;
+            color: var(--gray700);
+            font-size: 1.25em;
+
+            &::placeholder {
+              border: 0;
+            }
+          }
+        }
+
+        .total__items {
+          height: 20px;
+          margin: .5rem .5rem;
+          
+          display: flex;
+          align-items: center;
+
+          border-bottom: 1px solid var(--dark-main-color);
+
+          span {
+            font-weight: 500;
+          }
+        }
+
+        .button-close {
+          margin: .5rem .5rem;
+          
+          display: flex;
+          align-items: center;
+
+          font-size: .9em;
+
+          span {
+            margin: 0 .3rem;
+            
+            font-size: 2rem;
+          }
+        }
+      }
+      
       .favorites__title {
         font-size: 1.4em;
         font-weight: 500;

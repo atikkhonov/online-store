@@ -3,8 +3,6 @@ import axios from 'axios'
 
 import Card from '../components/Card'
 import FilterBlock from '../components/FilterBlock'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 import Modal from '../components/Modal'
 import PaginationBlock from '../components/PaginateBlock/PaginationBlock'
 import SortBlock from '../components/SortBlock'
@@ -56,7 +54,6 @@ function ShopPage () {
   
   return (
     <>
-      <Header/>
       <div className="container">
         <div className="standart__title">
           <p>Продукция</p>
@@ -85,7 +82,6 @@ function ShopPage () {
         <PaginationBlock currentPage={page} onChangePage={onChangePage}/>
       </div>
       <Modal active={activeModal} setActive={setActiveModal}/>
-      <Footer/>
     </>
   )
 }

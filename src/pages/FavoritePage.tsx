@@ -2,18 +2,23 @@ import React from 'react'
 
 import AnimationButton from '../components/AnimationButton'
 import FavoriteItem from '../components/FavoriteItem'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../hooks/redux'
+import { useDispatch } from 'react-redux'
+
+import { clearFavorites } from '../store/slices/FavoriteSlice'
 
 const FavoritePage = () => {
+  const dispatch = useDispatch()
   const products = useTypedSelector(state => state.favorite.favoriteProducts)
+  
+  const onClickClearFavorites = () => {
+    dispatch(clearFavorites())
+  }
   
   return (
     <>
-      <Header/>
       {
         (products.length > 0) ? 
         <>
@@ -26,18 +31,27 @@ const FavoritePage = () => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magnam adipisci delectus cum quae magni nesciunt natus nam a dolorem!</p>
               </div>
               <div className="favorites-content">
+                <div className="order-block">
+                  <div className="search-block">
+                    <input type="text" placeholder="Найти ..."/>
+                  </div>
+                  <div className="total__items">Всего товаров в списке <span>&nbsp; {products.length}</span></div>
+                  <button 
+                    className="button button-close"
+                    onClick={onClickClearFavorites}
+                  > очистить избранное <span>&times;</span></button>
+                </div>
                 <p className="favorites__title">Добавленные товары: </p>
                 <section className="favorites-items">
                   {
                     products.map((item) => {
-                      return <FavoriteItem favoriteProduct={item} />
+                      return <FavoriteItem key={item.id} favoriteProduct={item} />
                     })
                   }
                 </section>
               </div>
             </div>
           </div>
-          <Footer/>
         </>
         :
         <>
@@ -63,14 +77,13 @@ const FavoritePage = () => {
                 </div>
                 <Link to="/">
                   <AnimationButton 
-                    text="Перейти к покупкам" 
+                    text="Перейти не главную" 
                     className="header__button"
                   />
                 </Link>
               </div>
             </div>
           </div>
-          <Footer/>
         </>
       }
     </>

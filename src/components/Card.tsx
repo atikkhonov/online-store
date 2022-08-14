@@ -5,6 +5,7 @@ import { addProductToCart } from '../store/slices/CartSlice';
 
 import { IProduct } from '../models/IProduct';
 import { addToFavorite } from '../store/slices/FavoriteSlice';
+import { addToComparePage } from '../store/slices/CompareSlice';
 interface CardProps {
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -33,6 +34,10 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
     }
     dispatch(addToFavorite(item))
   }
+
+  const onClickAddToCompare = () => {
+    dispatch(addToComparePage(product))
+  }
   
   return (
     <div className="card-support">
@@ -48,7 +53,10 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
                 <path d="M19 33.25L17.6205 32.0112C13.9643 28.6854 11.0371 25.7837 8.83895 23.3061C6.64075 20.8285 5.54166 18.3174 5.54166 15.7728C5.54166 13.764 6.22018 12.0843 7.57723 10.7339C8.93428 9.38353 10.611 8.70833 12.6073 8.70833C13.7512 8.70833 14.884 8.98176 16.0055 9.52862C17.127 10.0755 18.1252 10.9739 19 12.2238C19.9869 10.9739 21.0075 10.0755 22.0618 9.52862C23.116 8.98176 24.2263 8.70833 25.3927 8.70833C27.389 8.70833 29.0657 9.38353 30.4227 10.7339C31.7798 12.0843 32.4583 13.764 32.4583 15.7728C32.4583 18.3174 31.3592 20.8285 29.161 23.3061C26.9628 25.7837 24.0356 28.6854 20.3795 32.0112L19 33.25ZM19 30.605C22.4094 27.4801 25.1684 24.7681 27.2769 22.4691C29.3853 20.17 30.4396 17.938 30.4396 15.7728C30.4396 14.2997 29.9629 13.0888 29.0096 12.1401C28.0563 11.1915 26.8507 10.7172 25.3927 10.7172C24.2712 10.7172 23.2169 11.0632 22.23 11.7551C21.243 12.4471 20.4355 13.4403 19.8075 14.7349H18.1588C17.5532 13.4403 16.7513 12.4471 15.7532 11.7551C14.755 11.0632 13.7064 10.7172 12.6073 10.7172C11.1269 10.7172 9.91562 11.1915 8.97353 12.1401C8.03145 13.0888 7.56041 14.2997 7.56041 15.7728C7.56041 17.938 8.61464 20.17 10.7231 22.4691C12.8316 24.7681 15.5905 27.4801 19 30.605Z" fill="#999999"/>
               </svg>
             </button>
-            <button className="button card__more_button compare-button">
+            <button 
+              className="button card__more_button compare-button"
+              onClick={onClickAddToCompare}
+            >
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="38" height="38" rx="5" fill="#EFEFEF"/>
                 <path d="M6.33334 23.363V20.3722L16.1852 10.5907L21.8148 16.2204L31.6667 6.33333V9.32407L21.8148 19.2111L16.1852 13.5815L6.33334 23.363ZM29.5556 31.6667V17.7333L31.6667 15.6222V31.6667H29.5556ZM12.1389 31.6667V23.363L14.25 21.2518V31.6667H12.1389ZM17.9445 31.6667V21.2518L20.0556 23.3981V31.6667H17.9445ZM23.75 31.6667V23.3981L25.8611 21.287V31.6667H23.75ZM6.33334 31.6667V28.9926L8.44445 26.8815V31.6667H6.33334Z" fill="#999999"/>

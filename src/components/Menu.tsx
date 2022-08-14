@@ -14,6 +14,7 @@ interface BurgerMenuProps {
 const Menu: React.FC<BurgerMenuProps> = ({ active, setActive }) => {
   const { products } = useTypedSelector(state => state.cart)
   const favoriteProducts = useTypedSelector(state => state.favorite.favoriteProducts)
+  const compareProducts = useTypedSelector(state => state.compare.compareProducts)
 
   const productsCurrent = products.reduce((sum, prod) => sum + prod.count, 0)
 
@@ -36,7 +37,7 @@ const Menu: React.FC<BurgerMenuProps> = ({ active, setActive }) => {
                   <circle cx="36.7272" cy="12.7272" r="9.81818" fill="#3DF1A6"/>
                 </svg>
                 <div className="button-counter">
-                  {13}
+                  {(compareProducts.length <= 6) ? compareProducts.length : 6}
                 </div>
               </button>
           </Link>
@@ -77,12 +78,8 @@ const Menu: React.FC<BurgerMenuProps> = ({ active, setActive }) => {
             <AnimationButton text={"Категории"} className={"header__button"}/>
           </Link>
           <AnimationButton text={"Магазины"} className={"header__button"}/>
-          <Link to="/about">
-            <AnimationButton text={"Компания"} className={"header__button"}/>
-          </Link>
-          <Link to="/contacts">
-            <AnimationButton text={"Контакты"} className={"header__button"}/>
-          </Link>
+          <AnimationButton text={"Компания"} className={"header__button"}/>
+          <AnimationButton text={"Контакты"} className={"header__button"}/>
         </div>
       </div>
     </section>

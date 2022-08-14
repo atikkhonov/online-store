@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 import AnimationButton from '../components/AnimationButton'
 import CartItem from '../components/CartItem'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { clearCart } from '../store/slices/CartSlice'
@@ -12,7 +10,7 @@ import { clearCart } from '../store/slices/CartSlice'
 const CartPage = () => {
   const dispatch = useTypedDispatch()
   const { products, totalPrice } = useTypedSelector(state => state.cart)
-
+  
   const onClickClearButton = () => {
     dispatch(clearCart())
   }
@@ -21,7 +19,6 @@ const CartPage = () => {
   
   return (
     <>
-      <Header/>
       {
         (products.length > 0) ?
         <div className="cart">
@@ -91,7 +88,6 @@ const CartPage = () => {
           </div>
         </div>
       }
-      <Footer/>
     </>
   )
 }
