@@ -18,23 +18,11 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
   const dispatch = useTypedDispatch()
   
   const onClickAddToCart = () => {
-    const item = {
-      id: product.id,
-      title: product.title,
-      imageURL: product.imageURL,
-      price: product.price,
-    }
-    dispatch(addProductToCart(item))
+    dispatch(addProductToCart(product))
   }
 
   const onClickAddToFavorite = () => {
-    const item = {
-      id: product.id,
-      title: product.title,
-      imageURL: product.imageURL,
-      price: product.price,
-    }
-    dispatch(addToFavorite(item))
+    dispatch(addToFavorite(product))
   }
 
   const onClickAddToCompare = () => {

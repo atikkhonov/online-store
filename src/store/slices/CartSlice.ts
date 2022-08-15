@@ -1,21 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+
 import { IProduct } from "../../models/IProduct"
+
+import calcTotalPrice from "../../utils/calcTotalPrice";
+import { getCartData } from "../../utils/getCartData";
 
 interface CartSlice {
   products: IProduct[];
   totalPrice: number;
 }
 
+const { products, totalPrice } = getCartData();
+
 const initialState: CartSlice = {
-  products: [],
-  totalPrice: 0,
+  products: products,
+  totalPrice: totalPrice,
 }
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProductToCart(state, action) {
+    addProductToCart(state, action: PayloadAction<IProduct>) {
       const findProduct = state.products.find(obj => obj.id === action.payload.id)
 
       if (findProduct) {
@@ -27,9 +33,7 @@ export const cartSlice = createSlice({
         });
       }
 
-      state.totalPrice = state.products.reduce((sum, item) => {
-        return (item.price * item.count) + sum;
-      }, 0)
+      state.totalPrice = calcTotalPrice(state.products)
     },
     removeProductFromCart(state, action: PayloadAction<IProduct>) {
       const findProduct = state.products.find(obj => obj.id === action.payload.id)
@@ -43,7 +47,6 @@ export const cartSlice = createSlice({
       } else {
         return
       }
-
     },
     deleteProductFromCart(state, action: PayloadAction<IProduct>) {
       if (window.confirm(`Вы точно хотите удалить "${action.payload.title}" из корзины ?`)) {

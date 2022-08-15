@@ -15,25 +15,13 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
   
   const onClickAddToCart = () => {
     if (product !== undefined) {
-      const item = {
-        id: product.id,
-        title: product.title,
-        imageURL: product.imageURL,
-        price: product.price,
-      }
-      dispatch(addProductToCart(item))
+      dispatch(addProductToCart(product))
     }
   }
 
   const onClickAddToFavorite = () => {
     if (product !== undefined) {
-      const item = {
-        id: product.id,
-        title: product.title,
-        imageURL: product.imageURL,
-        price: product.price,
-      }
-      dispatch(addToFavorite(item))
+      dispatch(addToFavorite(product))
     }
   }
 

@@ -12,11 +12,40 @@ const Header = () => {
   const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
   const location = useLocation()
-  const { products } = useTypedSelector(state => state.cart)
+
+  const products = useTypedSelector(state => state.cart.products)
   const favoriteProducts = useTypedSelector(state => state.favorite.favoriteProducts)
   const compareProducts = useTypedSelector(state => state.compare.compareProducts)
   
+  const isMountedCart = React.useRef(false)
+  const isMountedFavorite = React.useRef(false)
+  const isMountedCompare = React.useRef(false)
+  
   const productsCurrent = products.reduce((sum, prod) => sum + prod.count, 0)
+  
+  React.useEffect(() => {
+    if (isMountedCart.current) {
+      const json = JSON.stringify(products)
+      localStorage.setItem('cart', json)
+    }
+    isMountedCart.current = true;
+  }, [products])
+
+  React.useEffect(() => {
+    if (isMountedFavorite.current) {
+      const json = JSON.stringify(favoriteProducts)
+      localStorage.setItem('favorite', json)
+    }
+    isMountedFavorite.current = true;
+  }, [favoriteProducts])
+
+  React.useEffect(() => {
+    if (isMountedCompare.current) {
+      const json = JSON.stringify(compareProducts)
+      localStorage.setItem('compare', json)
+    }
+    isMountedCompare.current = true;
+  }, [compareProducts])
   
   return (
     <header >
@@ -58,7 +87,7 @@ const Header = () => {
                   <circle cx="37.4545" cy="12.7272" r="9.81818" fill="#3DF1A6"/>
                 </svg>
                 <div className="button-counter">
-                  {favoriteProducts.length}
+                  {favoriteProducts.length} 
                 </div>
               </button>
             </Link>

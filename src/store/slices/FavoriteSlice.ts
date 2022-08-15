@@ -1,14 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { IProduct } from "../../models/IProduct";
+
+import { getFavoriteData } from "../../utils/getFavoriteData";
 
 interface FavoriteSliceProps {
   favoriteProducts: IProduct[];
-  count: number;
 }
 
+const { favoriteProducts } = getFavoriteData()
+
 const initialState: FavoriteSliceProps = {
-  favoriteProducts: [],
-  count: 0,
+  favoriteProducts,
 }
 
 export const favoriteSlice = createSlice({
@@ -35,7 +38,6 @@ export const favoriteSlice = createSlice({
     clearFavorites(state) {
       if (window.confirm("Вы точно хотите очистить список избранного ?")) {
         state.favoriteProducts = [];
-        state.count = 0;
       }
     }
   }

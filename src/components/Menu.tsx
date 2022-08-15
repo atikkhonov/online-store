@@ -18,6 +18,7 @@ const Menu: React.FC<BurgerMenuProps> = ({ active, setActive }) => {
 
   const productsCurrent = products.reduce((sum, prod) => sum + prod.count, 0)
 
+  
   return (
     <section 
       className={active ? 'menu-active' : 'menu'} 

@@ -1,12 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { IProduct } from "../../models/IProduct";
+
+import { getCompareData } from "../../utils/getCompareData"
 
 interface CompareSlice {
   compareProducts: IProduct[];
 }
 
+const { compareProducts } = getCompareData()
+
 const initialState: CompareSlice = {
-  compareProducts: [],
+  compareProducts,
 }
 
 const compareSlice = createSlice({
