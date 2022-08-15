@@ -17,7 +17,8 @@ const compareSlice = createSlice({
       const findProduct = state.compareProducts.find(obj => obj.id === action.payload.id)
 
       if (findProduct) {
-        findProduct.count++;
+        alert("Вы уже добавили этот товар в список сравниния !")
+        return
       } if (state.compareProducts.length >= 6) {
         return
       } else {
@@ -27,10 +28,14 @@ const compareSlice = createSlice({
       }
     },
     removeFromComparePage(state, action: PayloadAction<IProduct>) {
-      state.compareProducts = state.compareProducts.filter((obj) => obj.id !== action.payload.id);
+      if (window.confirm("Вы точно хотите удалить этот товар из списка сравнений ?")) {
+        state.compareProducts = state.compareProducts.filter((obj) => obj.id !== action.payload.id);
+      }
     },
     clearComparePage(state) {
-      state.compareProducts = []
+      if (window.confirm("Вы точно хотите очистить список сравнений ?")) {
+        state.compareProducts = []
+      }
     }
   }
 })

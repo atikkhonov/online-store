@@ -4,9 +4,9 @@ import { useTypedDispatch } from '../hooks/redux';
 import { addProductToCart } from '../store/slices/CartSlice';
 
 import { IProduct } from '../models/IProduct';
+
 import { addToFavorite } from '../store/slices/FavoriteSlice';
 import { addToComparePage } from '../store/slices/CompareSlice';
-import Modal from './Modal';
 import { modalReducer } from '../store/slices/ModalSlice';
 interface CardProps {
   activeModal: boolean;

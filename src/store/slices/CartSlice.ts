@@ -46,12 +46,16 @@ export const cartSlice = createSlice({
 
     },
     deleteProductFromCart(state, action: PayloadAction<IProduct>) {
-      state.products = state.products.filter((obj) => obj.id !== action.payload.id);
-      state.totalPrice = state.totalPrice - (action.payload.price * action.payload.count);
+      if (window.confirm(`Вы точно хотите удалить "${action.payload.title}" из корзины ?`)) {
+        state.products = state.products.filter((obj) => obj.id !== action.payload.id);
+        state.totalPrice = state.totalPrice - (action.payload.price * action.payload.count);
+      }
     },
     clearCart(state) {
-      state.products = [];
-      state.totalPrice = 0;
+      if (window.confirm("Вы точно хотите очистить корзину ?")) {
+        state.products = [];
+        state.totalPrice = 0;
+      }
     }
   }
 })

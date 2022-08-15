@@ -19,6 +19,7 @@ export const favoriteSlice = createSlice({
       const findProduct = state.favoriteProducts.find(obj => obj.id === action.payload.id)
 
       if (findProduct) {
+        alert("Вы уже добавили этот товар в избранное !")
         return
       } else {
         state.favoriteProducts.push({
@@ -27,11 +28,15 @@ export const favoriteSlice = createSlice({
       }
     },
     deleteFromFavorite(state, action: PayloadAction<number>) {
-      state.favoriteProducts = state.favoriteProducts.filter((obj) => obj.id !== action.payload);
+      if (window.confirm("Вы точно хотите удалить этот товар из ибранного ?")) {
+        state.favoriteProducts = state.favoriteProducts.filter((obj) => obj.id !== action.payload);
+      }
     },
     clearFavorites(state) {
-      state.favoriteProducts = [];
-      state.count = 0;
+      if (window.confirm("Вы точно хотите очистить список избранного ?")) {
+        state.favoriteProducts = [];
+        state.count = 0;
+      }
     }
   }
 })
