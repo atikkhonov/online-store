@@ -5,13 +5,16 @@ import searchReducer from "./slices/SearchSlice";
 import cartReducer from "./slices/CartSlice";
 import favoriteReducer from "./slices/FavoriteSlice"
 import compareReducer from "./slices/CompareSlice"
+import modalReducer from "./slices/ModalSlice"
+
 
 const rootRuducer = combineReducers({
   product: productReducer,
   search: searchReducer,
   cart: cartReducer,
   favorite: favoriteReducer,
-  compare: compareReducer
+  compare: compareReducer,
+  modal: modalReducer
 })
 
 export const setupStore = () => {

@@ -7,7 +7,6 @@
   background-color: rgba(0, 0, 0, .4);
 
   position: fixed;
-  overflow-y: scroll;
 
   display: flex;
   align-items: center;
@@ -139,46 +138,11 @@
         
         .modal-order-block {
           margin: 1.8rem 0;
-          
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          .amount-block {
-            width: 10rem;
-            padding: .3rem 0;
-            
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            font-size: 1.3em;
-
-            .items__count {
-              background-color: var(--whiteF9);
-            }
-            
-            button {
-              width: 2.5rem;
-              height: 2.5rem;
-              
-              background-color: var(--white);
-
-              font-size: 1.3em;
-
-              transition: .3s;
-
-              &:hover {
-                background-color: var(--gray1200);
-              }
-            }
-          }
 
           .button-confirm {
+            max-width: 15rem;
             height: 4rem;
             padding: 0 1rem;
-            margin: 0 1rem;
 
             background-color: var(--main-color);
             color: var(--white);

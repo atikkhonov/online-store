@@ -6,6 +6,8 @@ import { addProductToCart } from '../store/slices/CartSlice';
 import { IProduct } from '../models/IProduct';
 import { addToFavorite } from '../store/slices/FavoriteSlice';
 import { addToComparePage } from '../store/slices/CompareSlice';
+import Modal from './Modal';
+import { modalReducer } from '../store/slices/ModalSlice';
 interface CardProps {
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,6 +40,11 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
   const onClickAddToCompare = () => {
     dispatch(addToComparePage(product))
   }
+
+  const openModal = () => {
+    dispatch(modalReducer(product))
+    setActiveModal(true)
+  }
   
   return (
     <div className="card-support">
@@ -64,7 +71,7 @@ const Card: React.FC<CardProps> = ({ activeModal, setActiveModal, product }) => 
             </button>
             <button 
               className="button card__more_button modal-button"
-              onClick={() => setActiveModal!(true)}
+              onClick={openModal}
             >
               <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="38" height="38" rx="5" fill="#EFEFEF"/>
