@@ -39,9 +39,6 @@ const CartPage = () => {
             </div>
             <div className="cart-content">
               <div className="order-block">
-                <div className="search-block">
-                  <input type="text" placeholder="Найти ..."/>
-                </div>
                 <div className="total__items">Всего товаров в корзине <span>&nbsp; {productsCurrent}</span></div>
                 <button 
                   className="button button-close"

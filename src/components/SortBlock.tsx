@@ -12,7 +12,7 @@ const popupItems = [
   { name: "алфавиту (возрастание)", sortProperty: '+title' }
 ]
 
-const SortBlock: React.FC = () => {
+const SortBlock: React.FC = React.memo(() => {
   const [isOpen, setIsOpen] = React.useState(false)
   const sortRef = React.useRef(null)
   
@@ -76,6 +76,6 @@ const SortBlock: React.FC = () => {
       }
     </div>
   )
-}
+})
 
 export default SortBlock

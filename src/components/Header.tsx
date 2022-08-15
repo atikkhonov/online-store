@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { useTypedSelector } from '../hooks/redux';
 
@@ -11,6 +11,7 @@ import SearchBlock from './SearchBlock';
 const Header = () => {
   const [menuActive, setMenuActive] = React.useState<boolean>(false)
 
+  const location = useLocation()
   const { products } = useTypedSelector(state => state.cart)
   const favoriteProducts = useTypedSelector(state => state.favorite.favoriteProducts)
   const compareProducts = useTypedSelector(state => state.compare.compareProducts)
@@ -29,7 +30,12 @@ const Header = () => {
             </Link>
           </div>
           <div className="header-content__items">
-            <SearchBlock/>
+            {
+              ((location.pathname !== '/cart') 
+                && (location.pathname !== '/favorite') 
+                && (location.pathname !== '/compare') 
+              ) && <SearchBlock />
+            }
           </div>
           <div className="more-buttons header__more_buttons">
             <Link to="/compare">

@@ -7,6 +7,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
   gap: 2rem 1rem;
+
+  justify-content: start;
 }
 
 .pagination-block {

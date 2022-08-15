@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { setFilter } from '../store/slices/SearchSlice'
 
@@ -10,13 +12,13 @@ const filterItems = [
   "Разное"
 ]
 
-const FilterBlock = () => {
+const FilterBlock: React.FC = React.memo(() => {
   const dispatch = useTypedDispatch()
   const categoryID = useTypedSelector(state => state.search.categoryID)
 
-  const onChangeCategory = (id: number) => {
+  const onChangeCategory = React.useCallback((id: number) => {
     dispatch(setFilter(id))
-  }
+  }, [])
   
   return (
     <div className="filter-block">
@@ -36,6 +38,6 @@ const FilterBlock = () => {
       </div>
     </div>
   )
-}
+})
 
 export default FilterBlock

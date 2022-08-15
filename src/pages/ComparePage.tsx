@@ -21,11 +21,11 @@ const ComparePage = () => {
         <div className="standart__subtitle">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magnam adipisci delectus cum quae magni nesciunt natus nam a dolorem!</p>
         </div>
-        <h1>Сравнение товаров</h1>
         {
           (compareProducts.length !== 0) ?
           <>
             <div className="compare-title">
+              <h1>Сравнение товаров</h1>
               <button 
                 className="button button-clear"
                 onClick={onClickClearCompare}
@@ -98,23 +98,26 @@ const ComparePage = () => {
             </div>
           </>
           : 
-          <div className="compare-empty-container">
-            <div className="compare__title">
-              <b>Список сравнений пуст :(</b>
-            </div>
-            <div className="compare__subtitle">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique expedita iure non sapiente ut suscipit velit quo ullam nobis assumenda. Exercitationem esse inventore accusamus aut optio aliquam. Assumenda, vero explicabo.</p>
-            </div>
-            <div className="compare__text">
-              <p>Ab nemo eius culpa reiciendis neque distinctio, rerum, laudantium consequatur cumque iste illum incidunt ipsam excepturi. Alias amet totam earum quae tenetur dolore cumque debitis sit, ratione, voluptatem, dolorum vitae veritatis repellat.</p>
-            </div>
-            <Link to="/">
-              <AnimationButton 
-                text="Перейти не главную" 
-                className="header__button"
-              />
-            </Link>
-          </div> 
+          <>
+            <h1>Сравнение товаров</h1>
+            <div className="compare-empty-container">
+              <div className="compare__title">
+                <b>Список сравнений пуст :(</b>
+              </div>
+              <div className="compare__subtitle">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique expedita iure non sapiente ut suscipit velit quo ullam nobis assumenda. Exercitationem esse inventore accusamus aut optio aliquam. Assumenda, vero explicabo.</p>
+              </div>
+              <div className="compare__text">
+                <p>Ab nemo eius culpa reiciendis neque distinctio, rerum, laudantium consequatur cumque iste illum incidunt ipsam excepturi. Alias amet totam earum quae tenetur dolore cumque debitis sit, ratione, voluptatem, dolorum vitae veritatis repellat.</p>
+              </div>
+              <Link to="/">
+                <AnimationButton 
+                  text="Перейти не главную" 
+                  className="header__button"
+                />
+              </Link>
+            </div> 
+          </>
         }
       </div>
     </div>

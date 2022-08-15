@@ -32,9 +32,6 @@ const FavoritePage = () => {
               </div>
               <div className="favorites-content">
                 <div className="order-block">
-                  <div className="search-block">
-                    <input type="text" placeholder="Найти ..."/>
-                  </div>
                   <div className="total__items">Всего товаров в списке <span>&nbsp; {products.length}</span></div>
                   <button 
                     className="button button-close"
