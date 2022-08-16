@@ -22,9 +22,9 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route index element={<ShopPage/>}/>
             <Route path="/cart" element={<CartPage/>}/>
+            <Route path="/favorite" element={<FavoritePage/>}/>
             <Route path="/compare" element={<ComparePage/>}/>
             <Route path="/contacts" element={<ContactsPage/>}/>
-            <Route path="/favorite" element={<FavoritePage/>}/>
             <Route path="/about" element={<AboutPage/>}/>
           </Route>
         </Routes>
