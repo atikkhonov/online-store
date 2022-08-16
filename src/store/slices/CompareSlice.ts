@@ -25,6 +25,7 @@ const compareSlice = createSlice({
         alert("Вы уже добавили этот товар в список сравниния !")
         return
       } if (state.compareProducts.length >= 6) {
+        alert("Список сравнений переполнен !")
         return
       } else {
         state.compareProducts.push({
