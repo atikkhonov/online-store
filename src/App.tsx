@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom'
+import ProfileModal from './components/ProfileModal';
 import Layout from './layout/Layout';
 
 import AboutPage from './pages/AboutPage';
@@ -14,12 +15,13 @@ export const SearchContext = React.createContext<string | any>(undefined)
 
 function App() {
   const [ search, setSearch ] = React.useState<string>('')
+  const [activeModal, setActiveModal] = React.useState<boolean>(false)
   
   return (
     <>
       <SearchContext.Provider value={{ search, setSearch }}>
         <Routes>
-          <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<Layout activeModal={activeModal} setActiveModal={setActiveModal}/>}>
             <Route index element={<ShopPage/>}/>
             <Route path="/cart" element={<CartPage/>}/>
             <Route path="/favorite" element={<FavoritePage/>}/>
@@ -29,6 +31,7 @@ function App() {
           </Route>
         </Routes>
       </SearchContext.Provider>
+      <ProfileModal activeModal={activeModal} setActiveModal={setActiveModal}/>
     </>
   );
 }
