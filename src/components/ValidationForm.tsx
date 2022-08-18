@@ -69,7 +69,7 @@ const ValidationForm = () => {
         <input 
           onBlur={e => blurHandler(e)} 
           name="password" 
-          type="text" 
+          type="password" 
           placeholder="Enter your password . . ." 
           value={password}
           onChange={e => passwordHandler(e)}

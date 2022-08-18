@@ -38,19 +38,36 @@
       grid-template-columns: repeat(4, 1fr);
       
       .more-button-item {
-        display: flex;
+        position: relative;
+        padding: .5rem;
+        margin: .5rem .3rem 0 .3rem;
         
         svg {
           width: 40px;
         }
 
-        .button-counter {
-          color: var(--white);
-          font-weight: 600;
-          font-size: 12px;
+        .circle-for-counter {
+          width: 18px;
+          height: 18px;
+          top: 0;
+          right: 0;
+
+          background-color: var(--main-color);
+          border-radius: 50%;
           
-          transform: translate(-15px, 6px);
-        }
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+          
+          position: absolute;
+
+          .button-counter {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 12px;
+          }
+        }   
       }
     }
     
@@ -149,22 +166,40 @@
       grid-template-columns: repeat(4, 1fr);
       
       .more-button-item {
-        display: flex;
+        position: relative;
+        padding: .5rem;
+        margin: .5rem .3rem 0 .3rem;
         
         svg {
-          width: 40px;
+          width: 28px;
+          height: 28px;
         }
 
-        .button-counter {
-          color: var(--white);
-          font-weight: 600;
-          font-size: 12px;
+        .circle-for-counter {
+          width: 18px;
+          height: 18px;
+          top: 0;
+          right: 0;
+
+          background-color: var(--main-color);
+          border-radius: 50%;
           
-          transform: translate(-15px, 6px);
-        }
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+
+          position: absolute;
+
+          .button-counter {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 12px;
+          }
+        }   
       }
     }
-    
+
     .menu-content-navigation {
       position: absolute;
       
