@@ -54,10 +54,12 @@
       .compare-items {
         padding: 1rem 0;
         width: 100%;
+
         display: grid;
         grid-template-columns: repeat(6, 10rem);
         grid-template-rows: repeat(1, 15rem) repeat(10, 3.5rem);
         align-items: center;
+        
         overflow-x: scroll;
 
         .compare_item_header {

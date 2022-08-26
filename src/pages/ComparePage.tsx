@@ -40,9 +40,7 @@ const ComparePage = () => {
                       return <CompareItem key={item.id} item={item}/>
                     })
                   }
-                
                   <div className="compare_list_item compare_list_item-gray">Цена:</div>
-                  
                     {
                       compareProducts.map(item => {
                         return <div key={item.id} className="compare__item">
@@ -50,9 +48,7 @@ const ComparePage = () => {
                         </div>
                       })
                     }
-                  
                   <div className="compare_list_item compare_list_item-gray">Вид никотина:</div>
-                  
                     {
                       compareProducts.map(item => {
                         return <div key={item.id} className="compare__item">
@@ -60,19 +56,15 @@ const ComparePage = () => {
                         </div>
                       })
                     }
-                  
                   <div className="compare_list_item compare_list_item-gray">Бренд:</div>
-                  
                     {
-                      compareProducts.map(item => {
-                        return <div key={item.id} className="compare__item">
-                          {item.brand}
-                        </div>
-                      })
+                     compareProducts.map(item => {
+                       return <div key={item.id} className="compare__item">
+                         {item.brand}
+                       </div>
+                     })
                     }
-                  
                   <div className="compare_list_item compare_list_item-gray">Крепкость:</div>
-                  
                     {
                       compareProducts.map(item => {
                         return <div key={item.id} className="compare__item">
@@ -80,17 +72,16 @@ const ComparePage = () => {
                         </div>
                       })
                     }
-                  
                   <div className="compare_list_item compare_list_item-gray">Объем:</div>
                     {
-                      compareProducts.map(item => {
-                        return <div key={item.id} className="compare__item">
-                          {item.volume}
-                        </div>
-                      })
+                     compareProducts.map(item => {
+                       return <div key={item.id} className="compare__item">
+                         {item.volume}
+                       </div>
+                     })
                     }
                 </div>
-              </div>
+            </div>
           </>
           : 
           <>
