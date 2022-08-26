@@ -2,11 +2,11 @@ import React, { Dispatch, SetStateAction } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
-import { useTypedSelector } from '../hooks/redux';
+import { useTypedSelector } from '../../hooks/redux';
 
-import AnimationButton from './AnimationButton';
+import AnimationButton from '../UI/AnimationButton';
 import Menu from './Menu';
-import SearchBlock from './SearchBlock';
+import SearchBlock from '../UI/SearchBlock';
 
 interface HeaderProps {
   activeModal: boolean;

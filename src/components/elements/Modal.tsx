@@ -1,8 +1,8 @@
 import React from 'react'
-import { useTypedDispatch, useTypedSelector } from '../hooks/redux';
-import { addProductToCart } from '../store/slices/CartSlice';
-import { addToComparePage } from '../store/slices/CompareSlice';
-import { addToFavorite } from '../store/slices/FavoriteSlice';
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
+import { addProductToCart } from '../../store/slices/CartSlice';
+import { addToComparePage } from '../../store/slices/CompareSlice';
+import { addToFavorite } from '../../store/slices/FavoriteSlice';
 
 interface ModalProps {
   active: boolean;

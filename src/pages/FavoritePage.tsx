@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AnimationButton from '../components/AnimationButton'
-import FavoriteItem from '../components/FavoriteItem'
+import AnimationButton from '../components/UI/AnimationButton'
+import FavoriteItem from '../components/elements/FavoriteItem'
 
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../hooks/redux'

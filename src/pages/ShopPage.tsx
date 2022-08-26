@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 
-import Card from '../components/Card'
-import FilterBlock from '../components/FilterBlock'
-import Modal from '../components/Modal'
-import PaginationBlock from '../components/PaginateBlock/PaginationBlock'
-import SortBlock from '../components/SortBlock'
+import Card from '../components/elements/Card'
+import FilterBlock from '../components/UI/FilterBlock'
+import Modal from '../components/elements/Modal'
+import PaginationBlock from '../components/UI/PaginateBlock/PaginationBlock'
+import SortBlock from '../components/UI/SortBlock'
 
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { fetchProducts } from '../store/actions/ProductAction'

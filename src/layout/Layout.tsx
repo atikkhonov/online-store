@@ -2,8 +2,8 @@ import React, { Dispatch, SetStateAction } from 'react'
 
 import { Outlet } from 'react-router-dom'
 
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Footer from '../components/elements/Footer'
+import Header from '../components/elements/Header'
 
 interface LayoutProps {
   activeModal: boolean;

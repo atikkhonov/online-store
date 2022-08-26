@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
-import { setFilter } from '../store/slices/SearchSlice'
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux'
+import { setFilter } from '../../store/slices/SearchSlice'
 
 const filterItems = [
   "Все",

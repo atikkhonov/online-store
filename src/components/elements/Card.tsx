@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { useTypedDispatch, useTypedSelector } from '../hooks/redux';
-import { addProductToCart } from '../store/slices/CartSlice';
+import { useTypedDispatch, useTypedSelector } from '../../hooks/redux';
+import { addProductToCart } from '../../store/slices/CartSlice';
 
-import { IProduct } from '../models/IProduct';
+import { IProduct } from '../../models/IProduct';
 
-import { addToFavorite } from '../store/slices/FavoriteSlice';
-import { addToComparePage } from '../store/slices/CompareSlice';
-import { modalReducer } from '../store/slices/ModalSlice';
+import { addToFavorite } from '../../store/slices/FavoriteSlice';
+import { addToComparePage } from '../../store/slices/CompareSlice';
+import { modalReducer } from '../../store/slices/ModalSlice';
 interface CardProps {
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;

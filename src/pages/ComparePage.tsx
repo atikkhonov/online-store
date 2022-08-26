@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AnimationButton from '../components/AnimationButton'
-import CompareItemHeader from '../components/CompareItemHeader'
+import AnimationButton from '../components/UI/AnimationButton'
+import CompareItem from '../components/elements/CompareItem'
 
 import { Link } from 'react-router-dom'
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
@@ -37,7 +37,7 @@ const ComparePage = () => {
               <div className="compare-content-header">
                 {
                   compareProducts.map((item) => {
-                    return <CompareItemHeader key={item.id} item={item}/>
+                    return <CompareItem key={item.id} item={item}/>
                   })
                 }
               </div>

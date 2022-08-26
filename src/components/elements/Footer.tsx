@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AnimationButton from './AnimationButton'
+import AnimationButton from '../UI/AnimationButton'
 
 interface footerProps {
   mod?: string;

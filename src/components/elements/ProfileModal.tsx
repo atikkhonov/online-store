@@ -1,5 +1,5 @@
 import React from 'react'
-import ValidationForm from './ValidationForm';
+import ValidationForm from '../UI/ValidationForm';
 
 interface ProfileModalProps {
   activeModal: boolean;

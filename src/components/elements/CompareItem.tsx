@@ -1,13 +1,13 @@
 import React from 'react'
-import { useTypedDispatch } from '../hooks/redux';
-import { IProduct } from '../models/IProduct'
-import { removeFromComparePage } from '../store/slices/CompareSlice';
+import { useTypedDispatch } from '../../hooks/redux';
+import { IProduct } from '../../models/IProduct'
+import { removeFromComparePage } from '../../store/slices/CompareSlice';
 
-interface CompareItemHeaderProps {
+interface CompareItemProps {
   item: IProduct;
 }
 
-const CompareItemHeader: React.FC<CompareItemHeaderProps> = ({ item }) => {
+const CompareItem: React.FC<CompareItemProps> = ({ item }) => {
   const dispatch = useTypedDispatch()
 
   const onClickRemoveButton = () => {
@@ -30,4 +30,4 @@ const CompareItemHeader: React.FC<CompareItemHeaderProps> = ({ item }) => {
   )
 }
 
-export default CompareItemHeader
+export default CompareItem

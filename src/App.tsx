@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom'
-import ProfileModal from './components/ProfileModal';
+import ProfileModal from './components/elements/ProfileModal';
 import Layout from './layout/Layout';
 
 import AboutPage from './pages/AboutPage';

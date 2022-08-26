@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SearchContext } from '../App'
+import { SearchContext } from '../../App'
 
 const SearchBlock: React.FC = React.memo(() => {
   const { search, setSearch } = React.useContext(SearchContext)

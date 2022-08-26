@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { IProduct } from '../models/IProduct';
+import { IProduct } from '../../models/IProduct';
 
-import { useTypedDispatch } from '../hooks/redux';
-import { addProductToCart, deleteProductFromCart, removeProductFromCart } from '../store/slices/CartSlice';
+import { useTypedDispatch } from '../../hooks/redux';
+import { addProductToCart, deleteProductFromCart, removeProductFromCart } from '../../store/slices/CartSlice';
 
 interface CartItemProps {
   cartProduct: IProduct;

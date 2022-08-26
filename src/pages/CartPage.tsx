@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import AnimationButton from '../components/AnimationButton'
-import CartItem from '../components/CartItem'
+import AnimationButton from '../components/UI/AnimationButton'
+import CartItem from '../components/elements/CartItem'
 
 import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
 import { clearCart } from '../store/slices/CartSlice'
