@@ -51,34 +51,42 @@
     .compare-content {
       box-shadow: 2px 2px 5px var(--gray1200);
       
-      .compare-content-header {
-        padding: 1rem;
-        
-        display: flex;
-
-        
-        .compare_item_header_title {
-          span {
-            font-size: .9em;
-            font-weight: 500;
-          }
-        }
+      .compare-items {
+        padding: 1rem 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6, 10rem);
+        grid-template-rows: repeat(1, 15rem) repeat(10, 3.5rem);
+        align-items: center;
+        overflow-x: scroll;
 
         .compare_item_header {
           position: relative;
-          width: 13rem;
           text-align: center;
+          height: 15rem;
 
+          img {
+            width: 10rem;
+          }
+          
+          .compare_item_header_title {
+            span {
+              font-size: .9em;
+              font-weight: 500;
+            }
+          }
+    
+  
           .button-remove {
             display: none;
-
+  
             position: absolute;
             top: 1%;
             right: 1%;
-
+  
             font-size: 1.6em;
           }
-
+    
           &:hover {
             .button-remove {
               display: block;
@@ -90,34 +98,30 @@
             height: 10rem;
           }
         }
-      }
-      .compare-items {
-        padding: 1rem 0;
         
-        .compare-lists {
-          .compare_list_item {
-            padding: 1rem;
-            font-size: 1.1em;
-            font-weight: 500;
-            margin: .1rem 0;
-          }
+        .compare_list_item {
+          margin: .1rem 0;
+          padding: 1rem;
+          
+          font-size: 1.1em;
+          font-weight: 500;
 
-          .compare_list_item-gray {
-            background-color: var(--white);
-          }
-
-          .compare-items {
-            display: flex;
-
-            .compare__item {
-              width: 13rem;
-              text-align: center;
-              font-size: 1.1em;
-              font-weight: 500;
-            }
-          }
+          grid-column-start: 1;
+          grid-column-end: 7;
         }
-      } 
+
+        .compare_list_item-gray {
+          background-color: var(--white);
+        }
+          
+        .compare__item {
+          width: 10rem;
+          text-align: center;
+          font-size: 1.1em;
+          font-weight: 500;
+          overflow: hidden;
+        }
+      }
     }
   }
 }
