@@ -1,3 +1,8 @@
+# Stack
+
+TypeScript, ReactJS, Redux Toolkit, axios, MockAPI, React Paginate, Router DOM, SCSS
+
+
 # Deploy
 
 core-murex.vercel.app
